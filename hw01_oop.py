@@ -7,7 +7,7 @@ class Product:
         self.name = name
         self.price = price
         self.quantity = quantity
-    def p_price(self):
+    def get_price(self):
         return self.price * self.quantity
 
 class ShoppingCart:
@@ -26,13 +26,13 @@ class ShoppingCart:
     def total_price(self):
         total = 0
         for p in self.shop_list:
-            total += p.p_price()
+            total += p.get_price()
         return total
 
     def billing(self):
         bill = '구입 품목:' + '\n'+'\n'
         for p in self.shop_list:
-            bill += '{:<20} {:>7}개 {:>12,}원\n'.format(p.name, p.quantity, p.p_price())
+            bill += '{:<20} {:>7}개 {:>12,}원\n'.format(p.name, p.quantity, p.get_price())
         bill += '-'*50 +'\n'
         bill += '합계{:>40,}원\n'.format(self.total_price())
         return bill
