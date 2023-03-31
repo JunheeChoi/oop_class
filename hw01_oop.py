@@ -42,7 +42,7 @@ class ShoppingCart:
 if __name__ == '__main__':
 
     p1 = Product('제주 삼다수 그린 2L', 1200, 5)
-    p2 = Product('신라면(120g*5입', 4100, 2)
+    p2 = Product('신라면(120g*5입)', 4100, 2)
     p3 = Product('CJ 햇반(210g*12입)', 13980, 1)
     p4 = Product('몽쉘크림(12입)', 4780, 1)
 
