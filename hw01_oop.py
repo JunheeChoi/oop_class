@@ -32,29 +32,31 @@ class ShoppingCart:
     def billing(self):
         bill = '구입 품목:' + '\n'+'\n'
         for p in self.shop_list:
-            bill += '{:<20} {:>7}개 {:,}원\n'.format(p.name, p.quantity, p.p_price())
-        bill += '-'*40 +'\n'
-        bill += '합계               {:>12}원\n'.format(self.total_price())
+            bill += '{:<20} {:>7}개 {:>12,}원\n'.format(p.name, p.quantity, p.p_price())
+        bill += '-'*50 +'\n'
+        bill += '합계{:>40,}원\n'.format(self.total_price())
         return bill
 
 # 2. 정의된 Product와 ShoppingCart 클래스를 이용하여 다음과 같은 제품을 카트에 추가하는 프로그램을 작성하시오.
 
-p1 = Product('제주 삼다수 그린 2L', 1200, 5)
-p2 = Product('신라면(120g*5입', 4100, 2)
-p3 = Product('CJ 햇반(210g*12입)', 13980, 1)
-p4 = Product('몽쉘크림(12입)', 4780, 1)
+if __name__ == '__main__':
 
-cart = ShoppingCart()
+    p1 = Product('제주 삼다수 그린 2L', 1200, 5)
+    p2 = Product('신라면(120g*5입', 4100, 2)
+    p3 = Product('CJ 햇반(210g*12입)', 13980, 1)
+    p4 = Product('몽쉘크림(12입)', 4780, 1)
 
-cart.add(p1)
-cart.add(p2)
-cart.add(p3)
+    cart = ShoppingCart()
 
-#3.
-cart.delete(p4, 1)
+    cart.add(p1)
+    cart.add(p2)
+    cart.add(p3)
 
-p5 = Product('해태 구운감자(135g*5입)', 3580, 2)
-cart.add(p5)
+    #3.
+    cart.delete(p4, 1)
 
-#4.
-print(cart.billing())
+    p5 = Product('해태 구운감자(135g*5입)', 3580, 2)
+    cart.add(p5)
+
+    #4.
+    print(cart.billing())
