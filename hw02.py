@@ -57,11 +57,11 @@ class ShoppingCart:
         return total
 
     def billing(self):
-        bill = '구입 품목:' + '\n'+'\n'
+        bill = '구입 품목:\n\n'
         for p in self.__shop_list:
-            bill += '{:<20} {:>7}개 {:>12,}\n'.format(p.name, p.quantity, int(p.get_price()))
-        bill += '-'*50 +'\n'
-        bill += '합계{:>40,}\n'.format(int(self.total_price()))
+            bill += '{:<20s} {:>7d}개 {:>12,d}원\n'.format(p.name, p.quantity, int(p.get_price()))
+        bill += '-'*50 + '\n'
+        bill += '합계{:>40,d}원\n'.format(int(self.total_price()))
         return bill
 
 # 2. add some products
