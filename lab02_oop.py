@@ -95,3 +95,19 @@ class QnA_Board:
                 QnA_Board.no_posts -= 1
                 return True
         return False
+
+qna = QnA_Board('질의,응답 게시판')
+
+p1 = Post('객체지향 원리', '객체지향의 핵심 원리 중 추상화에 대해 구체적인 예를 들어 설명해주세요.', '홍길동')
+p2 = Post('파이썬 언어', '파이썬 언어가 다른 프로그래밍 언어에 비해 보편화된 이유가 무엇인가요?', '홍길순')
+
+qna.add_post(p1.title, p1.content, p1.author)
+qna.add_post(p2.title, p2.content, p2.author)
+
+for post in qna.posts:
+    if post.title == '파이썬 언어':
+        qna.remove_post(post.id)
+        break
+
+for post in qna.posts:
+    print(post, '\n')
