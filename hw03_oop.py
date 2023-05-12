@@ -25,7 +25,7 @@ class Product:
         return int(self.__regular_price * self.__quantity * (1 - self.rate))
 
     def __str__(self):
-        return f"{self.__name:30s}{self.__quantity:3d}\t{self.__regular_price:5d}"
+        return f"{self.__name:<30s}{str(self.__quantity):<5s}\t{str(self.__regular_price):>5s}"
 
     @classmethod
     def change_rate(cls, rate):
@@ -66,15 +66,15 @@ class ShoppingCart:
             total += p.get_price()
         return total
 
-    @property
+
     def billing(self):
         print('구입 품목:\n')
-        print(f'{"품목명":30s} {"수량":6s} {"정상가":10s} {"할인가":10s}')
+        print(f'{"품목명":30s} {"수량":8s} {"정상가":10s} {"할인가":12s}')
 
         for p in self.__shop_list:
-            print(f'{p}\t{p.get_price():8d}원')
-        print(f'{58 * "-"}')
-        print(f'{"합계":46s} {self.total_price():8d} ')
+            print(f'{p}\t{p.get_price():>10d}  ')
+        print(f'{66 * "-"}')
+        print(f'{"합계":50s}\t{self.total_price():10d} ')
 
 
 
@@ -100,7 +100,8 @@ if __name__ == "__main__":
     cart.add(p4)
 
     # 3.
-    print(cart.billing)
+    print(cart.billing())
+
 
 
 
