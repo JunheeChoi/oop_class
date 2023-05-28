@@ -17,8 +17,8 @@ class YahtzeeDice:
     def __init__(self):
         self.dices = [Die() for _ in range(5)]
 
-    def roll_dices(self, dice_indices):
-        for index in dice_indices:
+    def roll_dices(self, dices):
+        for index in dices:
             self.dices[index-1].roll()
 
     def show_faces(self):
@@ -44,6 +44,7 @@ class YahtzeeDice:
                           self.dices]) + f"\nCounts: {', '.join(str(self.count_faces(i)) for i in range(1, 6))}\nSum: {self.sum_faces()}\n"
 
 
+#1. test code
 if __name__ == '__main__':
     y_dice = YahtzeeDice()
     y_dice.roll_dices([1,2,3,4,5])
