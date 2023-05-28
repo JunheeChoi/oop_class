@@ -3,33 +3,34 @@
 # add class variable 'distance_rate'
 
 class Product:
-    discount_rate = 0.0
+    discount_rate: float = 0.0
     def __init__(self, name, price, quantity):
-        self._name = name
-        self._price = price
-        self._quantity = quantity
+        self.__name = name
+        self.__price = price
+        self.__quantity = quantity
 
     @property
     def name(self):
-        return self._name
+        return self.__name
 
     @property
     def price(self):
-        return self._price
+        return self.__price
 
     @property
     def quantity(self):
-        return self._quantity
+        return self.__quantity
 
     @quantity.setter
     def quantity(self, q):
-        self._quantity = q
+        self.__quantity = q
 
     def get_price(self):
-        return self.price * self.quantity * (1 - Product.discount_rate)
+        return int(self.__price * self.__quantity * (1 - Product.discount_rate))
+
 
     def __str__(self):
-        return f"Name: {self.name}, Price: {self.price}, Quantity: {self.quantity}, Discount Rate: {Product.discount_rate}"
+        return f"{self.__name:30s}\t{self.__price:5d}원{self.__quantity:3d}개"
 
     @classmethod
     def change_rate(cls, rate):
@@ -57,12 +58,21 @@ class ShoppingCart:
         return total
 
     def billing(self):
-        bill = '구입 품목:\n\n'
+        print('구입 품목:\n')
+
         for p in self.__shop_list:
-            bill += '{:<20s} {:>7d}개 {:>12,d}원\n'.format(p.name, p.quantity, int(p.get_price()))
-        bill += '-'*50 + '\n'
-        bill += '합계{:>40,d}원\n'.format(int(self.total_price()))
-        return bill
+            print(f'{p}\t{p.get_price():8d}원')
+        print(f'{58 * "-"}')
+        print(f'{"합계":46s} {self.total_price():8d} ')
+
+
+    def __str__(self):
+        shop = ''
+        for p in self.__shop_list:
+            shop += f'{p}\n'
+
+        return shop
+
 
 # 2. add some products
 if __name__ == "__main__":
