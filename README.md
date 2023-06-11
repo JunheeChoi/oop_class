@@ -8,5 +8,13 @@ OOP class by Python
 * 객체(Object)는 클래스에 정의된 속성과 메서드를 가지며, 자체적으로 독립적인 상태를 가질 수 있음
 * 객체는 프로그램에서 메서드를 캡슐화하고, 이를 통해 현실 세계의 개념을 모델링하고 조작함
 ## Encapsulation
+### private mode : _, 암묵적으로 동의
+```
+class Mycls1():
+  def __init__(self, A, B):
+    self.A = _A
+    self.B = _B
+```
+* 
 ## hw01-03 : make Shopping Cart
-## hw04- : create Yahtzee Game
+## hw04-05 : create Yahtzee Game
